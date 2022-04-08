@@ -12,11 +12,11 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\InheritanceType("SINGLE_TABLE")]
-#[ORM\DiscriminatorColumn('user_type', "string")]
-#[ORM\DiscriminatorMap(['Admin' => "Admin", "User" => "User"])]
+// #[ORM\InheritanceType("SINGLE_TABLE")]
+// #[ORM\DiscriminatorColumn('user_type', "string")]
+// #[ORM\DiscriminatorMap(['Admin' => "Admin", "User" => "User"])]
 #[UniqueConstraint(name:"unique_person_details", columns:["email"])]
-#[ORM\Table(name: '`user`')]
+// #[ORM\Table(name: '`user`')]
 #[ApiResource(normalizationContext: ['groups' => ['read_user']], denormalizationContext: ['groups' => ['write_user']])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
