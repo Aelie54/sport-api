@@ -42,68 +42,50 @@ security:
             lazy: true
             provider: app_user_provider
 
-            # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#the-firewall
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
-
-        admin:
-            pattern : api/admin
+        exercises:
+            pattern : api/exercises
             stateless : true
             jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
 
-        exercise:
-            pattern : api/exercise
+        fitnesses:
+            pattern : api/fitnesses
             stateless : true
             jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
 
-        fitness:
-            pattern : api/fitness
+        gainages:
+            pattern : api/gainages
             stateless : true
             jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
 
-        gainage:
-            pattern : api/gainage
+        musculations:
+            pattern : api/musculations
             stateless : true
             jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
 
-        musculation:
-            pattern : api/musculation
+        titresfits:
+            pattern : api/titresfits
             stateless : true
             jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
 
-        titresfit:
-            pattern : api/titresfit
+        titresgainages:
+            pattern : api/titresgainages
             stateless : true
             jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
 
-        titresgainage:
-            pattern : api/titresgainage
+        titresmuscus:
+            pattern : api/titresmuscus
             stateless : true
             jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
 
-        titresmuscu:
-            pattern : api/titresmuscu
-            stateless : true
-            jwt: ~
-            methods: [GET, POST, PUT, PATCH, DELETE]
-
-        training:
-            pattern : api/training
-            stateless : true
-            jwt: ~
-            methods: [GET, POST, PUT, PATCH, DELETE]
-
-        user:
-            pattern : api/user
+        trainings:
+            pattern : api/trainings
             stateless : true
             jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
@@ -115,21 +97,14 @@ security:
         - { path: ^/api/login, roles: PUBLIC_ACCESS }
         - { path: ^/api,       roles: PUBLIC_ACCESS }
         - { path: ^/api/token/refresh, roles: PUBLIC_ACCESS }
-        - { path: ^/api/admin, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-        - { path: ^/api/exercise, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-        - { path: ^/api/fitness, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-        - { path: ^/api/gainage, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-        - { path: ^/api/musculation, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-        - { path: ^/api/titresfit, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-        - { path: ^/api/titresgainage, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-        - { path: ^/api/titresmuscu, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-        - { path: ^/api/training, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-        - { path: ^/api/user, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
-
-
-    # - { path: ^/admin, roles: ROLE_ADMIN }
-    # - { path: ^/profile, roles: ROLE_USER }
-
+        - { path: ^/api/exercises, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
+        - { path: ^/api/fitnesses, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
+        - { path: ^/api/gainages, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
+        - { path: ^/api/musculations, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
+        - { path: ^/api/titresfits, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
+        - { path: ^/api/titresgainages, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
+        - { path: ^/api/titresmuscus, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
+        - { path: ^/api/trainings, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
 
 when@test:
     security:
