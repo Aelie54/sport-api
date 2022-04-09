@@ -25,15 +25,20 @@ security:
             stateless: true
             json_login:
                 check_path: /api/login_check
-                #en plus:
                 username_path: email
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
 
-        api:
-            pattern:   ^/api
-            stateless: true
-            jwt: ~
+        # users:
+        #     pattern : api/users
+        #     stateless : true
+        #     jwt: ~
+        #     methods: [GET, POST, PUT, PATCH, DELETE]
+
+        # api:
+        #     pattern:   ^/api
+        #     stateless: true
+        #     entry_point: jwt
 
         refresh_token:
             pattern:   ^/api/token/refresh
@@ -97,7 +102,8 @@ security:
 # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/api/login, roles: PUBLIC_ACCESS }
-        - { path: ^/api,       roles: PUBLIC_ACCESS }
+        # - { path: ^/api/persons, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
+        # - { path: ^/api,       roles: PUBLIC_ACCESS }
         - { path: ^/api/token/refresh, roles: PUBLIC_ACCESS }
         - { path: ^/api/exercises, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
         - { path: ^/api/fitnesses, roles: PUBLIC_ACCESS, methods: [GET, POST, PUT, PATCH, DELETE] }
