@@ -34,7 +34,6 @@ security:
         #     stateless : true
         #     jwt: ~
         #     methods: [GET, POST, PUT, PATCH, DELETE]
-
         # api:
         #     pattern:   ^/api
         #     stateless: true
@@ -45,57 +44,57 @@ security:
             stateless: true
             refresh_jwt: ~
 
-        main:
-            lazy: true
-            provider: app_user_provider
-
         exercises:
             pattern : api/exercises
             stateless : true
-            jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
+            jwt: ~
 
         fitnesses:
             pattern : api/fitnesses
             stateless : true
-            jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
+            jwt: ~
 
         gainages:
             pattern : api/gainages
             stateless : true
-            jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
+            jwt: ~
 
         musculations:
             pattern : api/musculations
             stateless : true
-            jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
+            jwt: ~
 
         titresfits:
             pattern : api/titresfits
             stateless : true
-            jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
+            jwt: ~
 
         titresgainages:
             pattern : api/titresgainages
             stateless : true
-            jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
+            jwt: ~
 
         titresmuscus:
             pattern : api/titresmuscus
             stateless : true
-            jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
+            jwt: ~
 
         trainings:
             pattern : api/trainings
             stateless : true
-            jwt: ~
             methods: [GET, POST, PUT, PATCH, DELETE]
+            jwt: ~
+
+        main:
+            lazy: true
+            provider: app_user_provider
 
 
 # Easy way to control access for large sections of your site
