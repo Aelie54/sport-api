@@ -42,6 +42,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(['read_user', 'write_user' ])]
     private $trainings;
 
+    #[ORM\Column(type: 'string', length: 20, nullable: true)]
+    private $username;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -146,4 +149,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(?string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
 }
+
+
+// <?php ENFANT DE USER QUE JAI ENLEVE
+
+// namespace App\Entity;
+// use ApiPlatform\Core\Annotation\ApiResource;
+// use Symfony\Component\Serializer\Annotation\Groups;
+
+// use App\Repository\AdminRepository;
+// use Doctrine\ORM\Mapping as ORM;
+
+// #[ORM\Entity(repositoryClass: AdminRepository::class)]
+// #[ApiResource(normalizationContext: ['groups' => ['read_admin']], denormalizationContext: ['groups' => ['write_admin']])]
+// class Admin extends User
+// {
+
+// }
